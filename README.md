@@ -12,7 +12,7 @@ A production-grade MLOps pipeline for forecasting financial market volatility.
 
 ## Status
 - [x] Phase 1: Data ingestion + feature engineering
-- [ ] Phase 2: Baseline modeling + MLflow
+- [x] Phase 2: Baseline modeling + MLflow
 - [ ] Phase 3: FastAPI serving
 - [ ] Phase 4: Drift detection
 - [ ] Phase 5: Automated retraining
