@@ -1,0 +1,16 @@
+# data and database
+data/
+*.db
+
+# python cache
+__pycache__/
+*.pyc
+*.pyo
+.env
+
+# virtual environment
+venv/
+.venv/
+
+# VSCode
+.vscode/
