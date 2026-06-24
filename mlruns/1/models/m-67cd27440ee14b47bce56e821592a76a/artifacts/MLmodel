@@ -1,0 +1,22 @@
+artifact_path: file:C:/Users/User/Desktop/vol_forecaster/mlruns/1/models/m-67cd27440ee14b47bce56e821592a76a/artifacts
+flavors:
+  python_function:
+    data: model.ubj
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.xgboost
+    python_version: 3.13.14
+  xgboost:
+    code: null
+    data: model.ubj
+    model_class: xgboost.sklearn.XGBRegressor
+    model_format: ubj
+    xgb_version: 3.3.0
+mlflow_version: 3.14.0
+model_id: m-67cd27440ee14b47bce56e821592a76a
+model_size_bytes: 312878
+model_uuid: m-67cd27440ee14b47bce56e821592a76a
+prompts: null
+run_id: 66944404511b438e8bdba8cc212a71b1
+utc_time_created: '2026-06-24 06:25:05.500770'

@@ -1,0 +1,8 @@
+mlflow==3.14.0
+numpy==2.5.0
+pandas==2.3.3
+pendulum==3.2.0
+rich==13.9.4
+scikit-learn==1.9.0
+scipy==1.18.0
+xgboost==3.3.0
