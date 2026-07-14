@@ -14,3 +14,10 @@ venv/
 
 # VSCode
 .vscode/
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# environment variables
+.env
