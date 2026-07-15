@@ -1,0 +1,53 @@
+
+    <html>
+    <head>
+        <title>Drift Report - SPY</title>
+        <style>
+            body { font-family: Arial, sans-serif; padding: 30px; }
+            table { border-collapse: collapse; width: 60%; }
+            th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+            th { background: #343a40; color: white; }
+            .badge { padding: 8px 16px; border-radius: 4px; font-weight: bold; }
+        </style>
+    </head>
+    <body>
+        <h1>Volatility Forecasting ¡X Drift Report</h1>
+        <p><b>Ticker:</b> SPY | <b>Timestamp:</b> 20260715_140059</p>
+        <p><b>Reference size:</b> 1695 rows |
+           <b>Current window:</b> 60 rows</p>
+        <p><span class="badge" style="background:#f8d7da">Drift Detected</span></p>
+        <h2>Feature Drift (PSI)</h2>
+        <table>
+            <tr>
+                <th>Feature</th>
+                <th>PSI Score</th>
+                <th>Severity</th>
+                <th>Drift?</th>
+            </tr>
+            
+        <tr style="background:#f8d7da">
+            <td>rv_daily</td>
+            <td>0.1953</td>
+            <td>moderate</td>
+            <td>Yes</td>
+        </tr>
+        <tr style="background:#f8d7da">
+            <td>rv_weekly</td>
+            <td>1.4361</td>
+            <td>significant</td>
+            <td>Yes</td>
+        </tr>
+        <tr style="background:#f8d7da">
+            <td>rv_monthly</td>
+            <td>5.0684</td>
+            <td>significant</td>
+            <td>Yes</td>
+        </tr>
+        </table>
+        <br>
+        <p style="color:gray; font-size:12px">
+            PSI &lt; 0.1: No drift | 0.1¡V0.2: Moderate | &gt; 0.2: Significant
+        </p>
+    </body>
+    </html>
+    

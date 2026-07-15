@@ -184,5 +184,65 @@ try:
 except Exception as e:
     st.error(f"Could not run drift detection: {e}")
 
+
+# ── paper trading ─────────────────────────────────────────────────────────────
+st.header("Paper Trading")
+
+try:
+    from src.trader import get_account_info, get_current_position, get_portfolio_history
+
+    account = get_account_info()
+    position = get_current_position(ticker)
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        st.metric("Portfolio Value", f"${account['portfolio_value']:,.2f}")
+    with col2:
+        st.metric("Cash", f"${account['cash']:,.2f}")
+    with col3:
+        if position:
+            pl = float(position['unrealized_pl'])
+            plpc = float(position['unrealized_plpc']) * 100
+            st.metric(
+                f"{ticker} Position P&L",
+                f"${pl:,.2f}",
+                delta=f"{plpc:.2f}%",
+                delta_color="normal"
+            )
+        else:
+            st.metric(f"{ticker} Position", "Cash")
+    with col4:
+        st.metric("Buying Power", f"${account['buying_power']:,.2f}")
+
+    # portfolio history chart
+    history_df = get_portfolio_history()
+    if history_df is not None and not history_df.empty:
+        fig_pf = go.Figure()
+        fig_pf.add_trace(go.Scatter(
+            x=history_df.index,
+            y=history_df['portfolio_value'],
+            name="Portfolio Value",
+            line=dict(color="#2ecc71", width=2),
+            fill='tozeroy'
+        ))
+        fig_pf.add_hline(
+            y=100000,
+            line_dash="dash",
+            line_color="gray",
+            annotation_text="Starting Capital"
+        )
+        fig_pf.update_layout(
+            title="Paper Portfolio Performance",
+            yaxis_title="Portfolio Value ($)",
+            height=300
+        )
+        st.plotly_chart(fig_pf, use_container_width=True)
+    else:
+        st.info("Portfolio history will appear after a few days of trading.")
+
+except Exception as e:
+    st.error(f"Could not load trading data: {e}")
+    
 # ── footer ────────────────────────────────────────────────────────────────────
 st.markdown
